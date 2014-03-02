@@ -9,13 +9,13 @@
 #import "ViewController.h"
 @import QuartzCore;
 @import CoreMotion;
-#import "ballView.h"
+#import "BallView.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) CADisplayLink *displayLink;
 
-@property (strong, nonatomic) ballView *ballView;
+@property (strong, nonatomic) BallView *ballView;
 
 @property (assign, nonatomic) CGFloat gravity;
 @property (weak, nonatomic) IBOutlet UILabel *accelXLabel;
@@ -59,7 +59,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Create a ball:
-    self.ballView = [[ballView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
+    self.ballView = [[BallView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
                                             worldSize:self.view.bounds.size];
     [self.view addSubview:self.ballView];
     
