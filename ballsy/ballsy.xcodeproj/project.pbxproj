@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF08EC9718C3DF7F00E602F0 /* ballView.h in Resources */ = {isa = PBXBuildFile; fileRef = BF08EC9518C3DF7F00E602F0 /* ballView.h */; };
-		BF08EC9818C3DF7F00E602F0 /* ballView.m in Resources */ = {isa = PBXBuildFile; fileRef = BF08EC9618C3DF7F00E602F0 /* ballView.m */; };
 		BF818F7418BC0C5900F44971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF818F7318BC0C5900F44971 /* Foundation.framework */; };
 		BF818F7618BC0C5900F44971 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF818F7518BC0C5900F44971 /* CoreGraphics.framework */; };
 		BF818F7818BC0C5900F44971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF818F7718BC0C5900F44971 /* UIKit.framework */; };
@@ -23,6 +21,7 @@
 		BF818F9518BC0C5900F44971 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF818F7718BC0C5900F44971 /* UIKit.framework */; };
 		BF818F9D18BC0C5900F44971 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF818F9B18BC0C5900F44971 /* InfoPlist.strings */; };
 		BF818F9F18BC0C5900F44971 /* ballsyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF818F9E18BC0C5900F44971 /* ballsyTests.m */; };
+		CFE1B64B18C3F7A40066911E /* BallView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE1B64A18C3F7A40066911E /* BallView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF08EC9518C3DF7F00E602F0 /* ballView.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = ballView.h; path = ../../ballView.h; sourceTree = "<group>"; };
-		BF08EC9618C3DF7F00E602F0 /* ballView.m */ = {isa = PBXFileReference; lastKnownFileType = file; name = ballView.m; path = ../../ballView.m; sourceTree = "<group>"; };
 		BF818F7018BC0C5900F44971 /* ballsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ballsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF818F7318BC0C5900F44971 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF818F7518BC0C5900F44971 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -57,6 +54,8 @@
 		BF818F9A18BC0C5900F44971 /* ballsyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ballsyTests-Info.plist"; sourceTree = "<group>"; };
 		BF818F9C18BC0C5900F44971 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF818F9E18BC0C5900F44971 /* ballsyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ballsyTests.m; sourceTree = "<group>"; };
+		CFE1B64918C3F7A40066911E /* BallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallView.h; sourceTree = "<group>"; };
+		CFE1B64A18C3F7A40066911E /* BallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +115,8 @@
 		BF818F7918BC0C5900F44971 /* ballsy */ = {
 			isa = PBXGroup;
 			children = (
-				BF08EC9518C3DF7F00E602F0 /* ballView.h */,
-				BF08EC9618C3DF7F00E602F0 /* ballView.m */,
+				CFE1B64918C3F7A40066911E /* BallView.h */,
+				CFE1B64A18C3F7A40066911E /* BallView.m */,
 				BF818F8218BC0C5900F44971 /* AppDelegate.h */,
 				BF818F8318BC0C5900F44971 /* AppDelegate.m */,
 				BF818F8518BC0C5900F44971 /* Main.storyboard */,
@@ -236,9 +235,7 @@
 			files = (
 				BF818F8C18BC0C5900F44971 /* Images.xcassets in Resources */,
 				BF818F7E18BC0C5900F44971 /* InfoPlist.strings in Resources */,
-				BF08EC9718C3DF7F00E602F0 /* ballView.h in Resources */,
 				BF818F8718BC0C5900F44971 /* Main.storyboard in Resources */,
-				BF08EC9818C3DF7F00E602F0 /* ballView.m in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +257,7 @@
 				BF818F8A18BC0C5900F44971 /* ViewController.m in Sources */,
 				BF818F8418BC0C5900F44971 /* AppDelegate.m in Sources */,
 				BF818F8018BC0C5900F44971 /* main.m in Sources */,
+				CFE1B64B18C3F7A40066911E /* BallView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
