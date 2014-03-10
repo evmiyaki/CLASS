@@ -1,22 +1,22 @@
 //
-//  ballView.m
+//  BallView.m
 //  
 //
 //  Created by Evan Miyaki on 3/2/14.
 //
 //
 
-#import "ballView.h"
+#import "BallView.h"
 
-@interface ballView ()
+@interface BallView ()
 @property (assign, nonatomic) CGPoint velocity;
 @property (assign, nonatomic) CGSize worldSize;
 @property (assign, nonatomic) CGFloat dampeningFactor;
 @end
 
-@implementation ballView
+@implementation BallView
 
-(id)initWithFrame:(CGRect)frame worldSize:(CGSize)worldSize
+- (id)initWithFrame:(CGRect)frame worldSize:(CGSize)worldSize
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -30,7 +30,7 @@
     return self;
     }
 
-(void)moveWithGravity:(CGPoint)gravity
+- (void)moveWithGravity:(CGPoint)gravity
 {
     CGPoint vel = self.velocity;
     

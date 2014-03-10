@@ -9,13 +9,13 @@
 #import "ViewController.h"
 @import QuartzCore;
 @import CoreMotion;
-#import "ballView.h"
+#import "BallView.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) CADisplayLink *displayLink;
 
-@property (strong, nonatomic) ballView *ballView;
+@property (strong, nonatomic) BallView *BallView;
 
 @property (assign, nonatomic) CGFloat gravity;
 @property (weak, nonatomic) IBOutlet UILabel *accelXLabel;
@@ -38,7 +38,7 @@
     // Update ball position:
     CGPoint gravityForce = CGPointMake( accelData.acceleration.x * self.gravity,
                                        -accelData.acceleration.y * self.gravity);
-    [self.ballView moveWithGravity:gravityForce];
+    [self.BallView moveWithGravity:gravityForce];
 }
 
 - (void)setupMotionManager
@@ -59,9 +59,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Create a ball:
-    self.ballView = [[ballView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
+    self.BallView = [[BallView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
                                             worldSize:self.view.bounds.size];
-    [self.view addSubview:self.ballView];
+    [self.view addSubview:self.BallView];
     
     // Set world gravitational force (to center of earth via accelerometers):
     self.gravity = 5.0;
