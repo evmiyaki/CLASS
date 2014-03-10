@@ -15,7 +15,11 @@
 
 @property (strong, nonatomic) CADisplayLink *displayLink;
 
+<<<<<<< HEAD
 @property (strong, nonatomic) BallView *BallView;
+=======
+@property (strong, nonatomic) BallView *ballView;
+>>>>>>> 943280bf283aba638263bb0516618ced341ae327
 
 @property (assign, nonatomic) CGFloat gravity;
 @property (weak, nonatomic) IBOutlet UILabel *accelXLabel;
@@ -59,7 +63,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Create a ball:
+<<<<<<< HEAD
     self.BallView = [[BallView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
+=======
+    self.ballView = [[BallView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
+>>>>>>> 943280bf283aba638263bb0516618ced341ae327
                                             worldSize:self.view.bounds.size];
     [self.view addSubview:self.BallView];
     
