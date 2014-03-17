@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BallView : UIView
-@property (assign, nonatomic) CGPoint velocity;
 
-- (void)move;
+- (id)initWithFrame:(CGRect)frame worldSize:(CGSize)worldSize;
+- (void)moveWithGravity:(CGPoint)gravity;
 
 @end

@@ -15,12 +15,10 @@
 
 @property (strong, nonatomic) CADisplayLink *displayLink;
 
-@property (strong, nonatomic) BallView *ballView;
+@property (strong, nonatomic) NSMutableArray *balls;
 
-@property (assign, nonatomic) CGFloat gravity;
-@property (weak, nonatomic) IBOutlet UILabel *accelXLabel;
-@property (weak, nonatomic) IBOutlet UILabel *accelYLabel;
-@property (weak, nonatomic) IBOutlet UILabel *accelZLabel;
+@property (assign, nonatomic) CGPoint gravity;
+
 @property (strong, nonatomic) CMMotionManager *motionManager;
 @end
 
@@ -28,30 +26,23 @@
 
 - (void)tick:(CADisplayLink *)sender
 {
-    CMAccelerometerData *accelData = self.motionManager.accelerometerData;
-    
-    // Update acceleration labels:
-    self.accelXLabel.text = [NSString stringWithFormat:@"acceleration x: %.2f", accelData.acceleration.x];
-    self.accelYLabel.text = [NSString stringWithFormat:@"acceleration y: %.2f", accelData.acceleration.y];
-    self.accelZLabel.text = [NSString stringWithFormat:@"acceleration z: %.2f", accelData.acceleration.z];
-    
-    // Update ball position:
-    CGPoint gravityForce = CGPointMake( accelData.acceleration.x * self.gravity,
-                                       -accelData.acceleration.y * self.gravity);
-    [self.ballView moveWithGravity:gravityForce];
-}
-
-- (void)setupMotionManager
-{
-    self.motionManager = [[CMMotionManager alloc] init];
-    
-    if ([self.motionManager isAccelerometerAvailable]) {
-        self.motionManager.accelerometerUpdateInterval = 1.0/60.0;
-        [self.motionManager startAccelerometerUpdates];
-    } else {
-        NSLog(@"Accelerometer is not available.");
+    for (BallView *ballView in self.balls) {
+        [ballView move];
     }
 }
+
+
+- (void)addballviewWithLocation:(CGPoint)location velocity:(CGPoint)velocity size:(CGSize)size
+{
+    BallView *ballView = [[BallView alloc] initWithFrame:CGRectMake(50.0, 50.0, size.width, size.height)];
+    
+    ballView.center = location;
+    ballView.velocity = velocity;
+    [self.view addSubview:ballView];
+    [self.balls addObject:ballView];
+    
+}
+
 
 - (void)viewDidLoad
 {
@@ -59,12 +50,17 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Create a ball:
-    self.ballView = [[BallView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)
-                                            worldSize:self.view.bounds.size];
-    [self.view addSubview:self.ballView];
-    
+    self.balls = [NSMutableArray array];
+    for (int i=0; i<200; i++) {
+        CGPoint location = CGPointMake(arc4random()%500, arc4random()%500);
+        CGPoint velocity = CGPointMake(arc4random()%100, arc4random()%100);
+        CGSize size = CGSizeMake(50, 50);
+        
+        [self addballviewWithLocation:location velocity:velocity size:size];
+    }
+
     // Set world gravitational force (to center of earth via accelerometers):
-    self.gravity = 5.0;
+     self.gravity = CGPointMake(0, 5);
     
     // Set up the display loop:
     self.displayLink = [CADisplayLink displayLinkWithTarget:self
@@ -73,8 +69,7 @@
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]
                            forMode:NSDefaultRunLoopMode];
     
-    // Initialize use of accelerometers:
-    [self setupMotionManager];
 }
+
 
 @end

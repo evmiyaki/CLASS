@@ -9,33 +9,37 @@
 #import "BallView.h"
 
 @interface BallView ()
-@property (assign, nonatomic) CGPoint velocity;
-@property (assign, nonatomic) CGSize worldSize;
 @property (assign, nonatomic) CGFloat dampeningFactor;
+@property (strong, nonatomic) CADisplayLink *displayLink;
+@property (strong, nonatomic) UIColor *color;
+
 @end
 
 @implementation BallView
 
-- (id)initWithFrame:(CGRect)frame worldSize:(CGSize)worldSize
+
+- (id)initWithFrame:(CGRect)frame
+
 {
     self = [super initWithFrame:frame];
+    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
     if (self) {
         // Initialization code
-        _worldSize = worldSize;
-
-        self.backgroundColor = [UIColor magentaColor];
-        self.velocity = CGPointMake(10.0, 10.0);
+        self.backgroundColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
         self.dampeningFactor = 0.9;
     }
     return self;
 }
 
-- (void)moveWithGravity:(CGPoint)gravity
+- (void)move
 {
     CGPoint vel = self.velocity;
     
     // Bounce of the left and right sides:
-    CGFloat width = self.worldSize.width;
+    CGFloat width = self.superview.bounds.size.width;
     if (CGRectGetMaxX(self.frame) >= width) {
         vel.x = -ABS(vel.x) * self.dampeningFactor;
     } else if (CGRectGetMinX(self.frame) <= 0) {
@@ -43,16 +47,16 @@
     }
     
     // Bounce off the bottom and top:
-    CGFloat height = self.worldSize.height;
+    CGFloat height = self.superview.bounds.size.height;
     if (CGRectGetMaxY(self.frame) >= height) {
         vel.y = -ABS(vel.y) * self.dampeningFactor;
     } else if (CGRectGetMinY(self.frame) <= 0) {
         vel.y = ABS(vel.y) * self.dampeningFactor;
     }
 
-    // Apply gravitational force:
-    vel.x += gravity.x;
-    vel.y += gravity.y;
+//    // Apply gravitational force:
+//    vel.x += gravity.x;
+//    vel.y += gravity.y;
     self.velocity = vel;
 
     // Update location:
