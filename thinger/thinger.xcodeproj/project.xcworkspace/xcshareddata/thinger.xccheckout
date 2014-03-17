@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6D54C22A-9CA1-455F-B6A2-50C8A3522A66</string>
+	<key>IDESourceControlProjectName</key>
+	<string>thinger</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>06B3C5DB-6C8C-4B25-92DF-298909379F49</key>
+		<string>https://github.com/evmiyaki/CLASS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>thinger/thinger.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>06B3C5DB-6C8C-4B25-92DF-298909379F49</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/evmiyaki/CLASS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>06B3C5DB-6C8C-4B25-92DF-298909379F49</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>06B3C5DB-6C8C-4B25-92DF-298909379F49</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CLASS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
